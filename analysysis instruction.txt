@@ -1,0 +1,5 @@
+Celem analizy jest zbadanie zachowań użytkowników Instagrama.
+Do analizy potrzebne jest pobranie i zaimportowanie dwóch zbiorów danych z tego linku -> https://www.kaggle.com/datasets/rockyt07/social-media-user-analysis?resource=download.
+Do prawidłowego funkcjonowania programu niezbędne jest zastosowanie bibliotek: pandas, numpy, matplotlib, seaborn i Ipython.display.
+Po uruchomieniu programu analiza zostanie przeprowadzona i przedstawiona za pomocą diagramów, wykresów kołowych, a także korelacji danych.
+Uzyskane wyniki pozwolą dostrzec, że z Instagrama korzystają ludzie w zróżnicowanym wieku, aplikacja ma niekorzystny wpływ na sen, gdyż większość osób spędza więcej czasu na platformie niż przeznacza na sen, a na podstawie wykonanej korelacji danych można wywnioskować także, że ludzie, którzy częściej podróżują w skali roku, częściej również korzystają z aplikacji w ciągu dnia.
