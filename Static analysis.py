@@ -1,22 +1,21 @@
-# importing dependencies
-
 import pandas as pandas
 import numpy as numpy
 import matplotlib.pyplot as matlib
 import seaborn as seaborn
 import warnings
 warnings.filterwarnings('ignore')
+import os
 from IPython.display import display
-
 
 seaborn.set_style("whitegrid")
 matlib.rcParams['figure.figsize'] = (14,7)
 seaborn.set_palette("muted")
 
-# loading data from datasheets
 
-file_path = '/Users/zielonkowaty/Documents/Pycharm/kagle_csv/instagram_usage_lifestyle.csv'
-file_secondary_path = '/Users/zielonkowaty/Documents/Pycharm/kagle_csv/instagram_users_lifestyle.csv'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+file_path = os.path.join(BASE_DIR, 'kagle_csv', 'instagram_usage_lifestyle.csv')
+file_secondary_path = os.path.join(BASE_DIR, 'kagle_csv', 'instagram_users_lifestyle.csv')
 
 try:
     file = pandas.read_csv(file_path)
@@ -32,7 +31,6 @@ except Exception as e:
     print("An error occurred while loading the file:", e)
 
 
-# print proporties
 print("\nShape:", file.shape)
 print("Columns:", file.columns.tolist())
 display(file.head(5))
@@ -40,7 +38,6 @@ print("\nShape:", file1.shape)
 print("Columns:", file1.columns.tolist())
 display(file1.head(5))
 
-# func to import data from columns
 
 def fetch_column_data(file, possible_names):
     for name in possible_names:
@@ -48,7 +45,6 @@ def fetch_column_data(file, possible_names):
             return name
     return None
 
-# age & gender analysis
 
 age_col = fetch_column_data(file, ['Age', 'age', 'User Age', 'user_age'])
 gender_col = fetch_column_data(file, ['Gender', 'gender', 'Sex', 'sex'])
@@ -71,7 +67,6 @@ if gender_col:
     matlib.title(f'Gender')
     matlib.show()
 
-# usage and lifestyle
 
 time_col = fetch_column_data(file1, ['daily_active_minutes_instagram', 'Daily_Instagram_Time_minutes', 'Daily Usage Time', 'instagram_time',
 'daily_time_minutes', 'Usage Time (minutes)', 'Time Spent'])
@@ -92,7 +87,6 @@ elif time_col:
 else:
     print("Columns not found")
 
-# data correlation
 
 numeric_file = file.select_dtypes(include=numpy.number)
 if not numeric_file.empty:
